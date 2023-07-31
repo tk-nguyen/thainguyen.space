@@ -29,10 +29,9 @@
 {% endif %}
 
 <h3>Latest blog posts:</h3>
-{% set section = get_section(path="posts/_index.md") %}
-{% set pages = section.pages %}
+{% set pages = get_section(path="posts/_index.md") | get(key="pages") %}
 <ul>
-{% for page in pages | sort(attribute="date") %}
+{% for page in pages | sort(attribute="date") | slice(end=5) %}
   <li>
     <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
     <br />

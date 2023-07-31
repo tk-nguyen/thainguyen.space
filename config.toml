@@ -32,9 +32,11 @@ favicon = "favicon.ico"
 image = ""
 list_pages = false
 twitter_card = true
-
 header_nav = [
     { name = "/home/", url = "/" },
     { name = "/about/", url = "/about" },
     { name = "/posts/", url = "/posts" },
 ]
+
+comment_url = "https://comments.thainguyen.space"
+comment_site_id = "b2d3751e-6b89-42aa-a2c5-4df2e755d4f8"
