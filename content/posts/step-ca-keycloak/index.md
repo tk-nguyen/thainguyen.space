@@ -2,7 +2,6 @@
 template = "blog-page.html"
 title = "Setting up step-ca with Keycloak"
 description = "Tutorial on integrating step-ca and Keycloak"
-draft = true
 date = "2023-08-01"
 authors = ["Nguyen Thai"]
 [taxonomies]
