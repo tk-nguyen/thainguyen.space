@@ -1,0 +1,10 @@
+FROM smallstep/step-ca
+
+# So we can install our certificate
+USER root
+
+RUN apk add ca-certificates
+
+COPY certs/ca.crt /usr/local/share/ca-certificates/ca.crt
+
+RUN update-ca-certificates

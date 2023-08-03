@@ -25,25 +25,25 @@
 }
 
 :root.dark {
-    --bgColor: #282a36;
-    --fgColor: #f8f8f2;
+    --bgColor: #222529;
+    --fgColor: #D6D6D6;
     --metaColor: #78B6AD;
     --headColor: #;
     --linkColor: #DBD5BC;
-    --hovColor: #44475a;
+    --hovColor: #E2AEA2;
     --bgSelect: #464949;
     --bgUrl: url(https://i.ibb.co/LzrFBFJ/tileDark.webp) repeat;
-    --red: #ff5555;
+    --red: #CD909B;
     --dimRed: #684249;
-    --orange: #ffb86c;
+    --orange: #E2AEA2;
     --dimOrange: #704941;
-    --yellow: #f1fa8c;
+    --yellow: #DBD5BC;
     --dimYellow: #6F6847;
-    --green: #50fa7b;
+    --green: #78B6AD;
     --dimGreen: #3E615C;
-    --blue: #8be9fd;
+    --blue: #87C9E5;
     --dimBlue: #38494F;
-    --purple: #bd93f9;
+    --purple: #CEA7DE;
     --dimPurple: #5E406A;
     --grey: #CBCDCD;
     --dimGrey: #464949
@@ -66,11 +66,11 @@ html {
 }
 
 body {
-    font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', 
+    font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro',
                  Menlo, Consolas, 'DejaVu Sans Mono', monospace;
     font-size: 1.6rem;
     line-height: 1.35;
-    max-width: 64rem;
+    max-width: 50%;
     margin: auto;
     padding: 1rem;
     overflow-wrap: break-word;
@@ -159,6 +159,13 @@ img {
     height: auto;
     margin: .2rem;
     padding: .2rem;
+    border: dashed 2px var(--metaColor);
+    border-radius: 15px
+}
+
+video {
+    max-width: 90%;
+    height: auto;
     border: dashed 2px var(--metaColor);
     border-radius: 15px
 }

@@ -1,0 +1,71 @@
+services:
+  ca: 
+    image: smallstep/step-ca
+    environment:
+      - DOCKER_STEPCA_INIT_NAME="Smallstep Demo"
+      - DOCKER_STEPCA_INIT_DNS_NAMES=ca.demo.null
+      - DOCKER_STEPCA_INIT_REMOTE_MANAGEMENT=true
+      - DOCKER_STEPCA_INIT_SSH=true
+    networks:
+      front:
+        aliases:
+          - ca.demo.null
+
+  cli:
+    image: ubuntu
+    tty: true
+    networks:
+      front:
+
+  caddy:
+    image: caddy
+    ports:
+      - "443:443"
+    volumes:
+      - "./caddy:/etc/caddy"
+      # Location of internal caddy TLS CA certs
+      - "./caddy/tls:/data/pki/authorities/local"
+    networks:
+      front:
+        aliases:
+          - sso.demo.null
+
+  ssh:
+    image: linuxserver/openssh-server:latest
+    environment:
+      - USER_NAME=demo
+    volumes:
+      - "./ssh:/config"
+    networks:
+      front:
+        aliases:
+          - sso.demo.null
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:22.0.1
+    command: start
+    environment:
+      - KEYCLOAK_ADMIN=admin 
+      - KEYCLOAK_ADMIN_PASSWORD=admin 
+      - KC_HOSTNAME=sso.demo.null
+      - KC_PROXY=edge
+      - KC_DB=postgres
+      - KC_DB_URL=jdbc:postgresql://db/keycloak
+      - KC_DB_USERNAME=keycloak
+      - KC_DB_PASSWORD=keycloak
+    networks:
+      front:
+      back:
+
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=keycloak
+      - POSTGRES_USER=keycloak
+      - POSTGRES_DB=keycloak
+    networks:
+      back:
+
+networks:
+  front:
+  back:

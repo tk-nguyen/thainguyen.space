@@ -31,11 +31,14 @@
 <h3>Latest blog posts:</h3>
 {% set pages = get_section(path="posts/_index.md") | get(key="pages") %}
 <ul>
-{% for page in pages | sort(attribute="date") | slice(end=5) %}
+{% for page in pages | slice(end=3) %}
   <li>
     <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+    {{ page.date | date(format="%d %B %Y") }}
     <br />
     {{ page.description }}
+    <br />
+    {{ page.summary }}
   </li>
 {% endfor %}
 </ul>
