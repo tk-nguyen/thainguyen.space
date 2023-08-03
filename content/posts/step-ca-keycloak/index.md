@@ -2,7 +2,7 @@
 template = "blog-page.html"
 title = "Setting up step-ca with Keycloak"
 description = "Tutorial on integrating step-ca and Keycloak"
-date = "2023-08-01"
+date = "2023-08-03"
 authors = ["Nguyen Thai"]
 [taxonomies]
 tags = ["tutorials", "tls", "ssh"]
@@ -77,7 +77,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - USER_NAME=demo
+      - USER_NAME=jeff
     volumes:
       - "./ssh:/config"
     networks:
@@ -318,7 +318,7 @@ $ docker compose logs ca | head -60 | grep -i "SSH User CA Key"
 step-ca-keycloak-ca-1  | 2023/08/03 12:12:02 SSH User CA Key: ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBIfKRq8fQk7JZ0lbI1mE07+bbL2rDdMTah2c/gqNRaRCuyZz//FJ+4LSXVA7sFPnaETNNocNHILIX15MXpePnUU=
 ```
 
-Now copy everything after the colon (`ecdsa ...`) and put it in a file named `step_ca_user_pub` in the `ssh` folder (You might need sudo access for this, because `ssh`)
+Now copy everything after the colon (`ecdsa ...`) and put it in a file named `step_ca_user_pub` in the `ssh/ssh_host_keys` folder.
 ```bash
 $ echo "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBIfKRq8fQk7JZ0lbI1mE07+bbL2rDdMTah2c/gqNRaRCuyZz//FJ+4LSXVA7sFPnaETNNocNHILIX15MXpePnUU=" > ssh/ssh_host_keys/step_ca_user_pub
 ```
