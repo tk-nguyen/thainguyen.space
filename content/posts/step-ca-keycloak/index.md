@@ -331,14 +331,14 @@ $ emacs ssh/sshd_config
 $ docker compose restart ssh
 ```
 
-Then in your `cli` container, get an SSH certificate for user `demo`. Since `step ssh` doesn't have `--console` flag, we have to do some manual work here:
+Then in your `cli` container, get an SSH certificate for user `jeff` on your `ssh` container. Since `step ssh` doesn't have `--console` flag, we have to do some manual work here:
 ```bash
 $ eval $(ssh-agent -s)
 Agent pid 306
 $ TOKEN=$(step oauth --bare --client-id step --client-secret 8AbigoypbJTyxQg4pBDJITLspA9vZVSC --console --provider https://sso.demo.null/realms/step/.well-known/openid-configuration)
 Visit https://sso.demo.null/realms/step/device and enter the code: (press 'ENTER' to open default browser)
 KRJR-FAOQ
-$ step ssh certificate demo@demo.null id_ecdsa --provisioner keycloak --token "$TOKEN"
+$ step ssh certificate jeff@demo.null id_ecdsa --provisioner keycloak --token "$TOKEN"
 ✔️ CA: https://ca.demo.null:9000
 Please enter the password to encrypt the private key:
 ✔ Private Key: id_ecdsa
