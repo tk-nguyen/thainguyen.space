@@ -9,6 +9,7 @@ compile_sass = true
 minify_html = true
 generate_feed = true
 
+
 taxonomies = [{ name = "tags" }]
 
 [markdown]
@@ -28,14 +29,15 @@ internal_level = "warn"
 
 [extra]
 author = "Nguyen Thai"
+display_author = true
 favicon = "favicon.ico"
 image = ""
 list_pages = false
 twitter_card = true
 header_nav = [
-    { name = "/home/", url = "/" },
-    { name = "/about/", url = "/about" },
-    { name = "/posts/", url = "/posts" },
+    { name_en = "/home/", url = "/" },
+    { name_en = "/about/", url = "/about" },
+    { name_en = "/posts/", url = "/posts" },
 ]
 
 comment_url = "https://comments.thainguyen.space"

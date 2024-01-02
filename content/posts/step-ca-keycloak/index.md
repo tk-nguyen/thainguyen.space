@@ -304,10 +304,6 @@ QTEJ-OKPQ
 
 The `--console` is for headless OIDC authentication. It should print out an URL and a code for you to enter. Visit that URL and enter your code, after logging in with the new user created above. After that, you should have your certificates in your current directory.
 
-<video controls>
-  <source src="files/certificate-oidc-flow.mp4" type="video/mp4" />
-</video>
-
 Congratulations! You're now able to get TLS certificates without pinging your trusty sysadmin!
 
 ## Generating SSH certificates
