@@ -92,7 +92,30 @@
 {% block css %}
 <link rel="stylesheet" href="{{ get_url(path='css/style.css', trailing_slash=false) | safe }}"/>
 {% endblock css %}
-<script src="{{ get_url(path='js/script.js', trailing_slash=false) | safe }}" defer></script>
+<script>
+const setTheme = (theme) => {
+  document.documentElement.className = theme;
+  localStorage.setItem('theme', theme);
+  window.REMARK42.changeTheme(theme)
+}
+
+const hasCodeRun = localStorage.getItem('hasCodeRun');
+
+if (!hasCodeRun) {
+  const defaultTheme = "{{ config.extra.default_theme }}";
+  setTheme(defaultTheme);
+  localStorage.setItem('hasCodeRun', 'true');
+}
+
+const getTheme = () => {
+  const theme = localStorage.getItem('theme');
+  if (theme) {
+    setTheme(theme);
+  }
+}
+
+getTheme();
+</script>
 {% block comments %}
 <script>
 var remark_config = {

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+{{ section.content | safe }}
+
+{% if config.extra.list_pages %}
+
+{% if paginator %}
+{% set pages = paginator.pages %}
+{% else %}
+{% set pages = section.pages %}
+{% endif %}
+
+<ul class="titleList">
+{% for page in pages %}
+  <li>
+    <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+    <br />
+    {{ page.description }}
+  </li>
+{% endfor %}
+</ul>
+
+{% if paginator %}
+<div class="metaData">{% if paginator.previous %}<a href="{{ paginator.first }}">⥶</a> &nbsp <a href="{{ paginator.previous }}"><</a>{% endif %} &nbsp {{ paginator.current_index }} / {{ paginator.number_pagers }} &nbsp {% if paginator.next %}<a href="{{ paginator.next }}">></a> &nbsp <a href="{{ paginator.last }}">⥸</a>{% endif %}</div>
+{% endif %}
+
+{% endif %}
+<h3>Latest blog posts:</h3>
+{% set pages = get_section(path="posts/_index.md") | get(key="pages") %}
+<ul>
+{% for page in pages | slice(end=3) %}
+  <li>
+    <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+    {{ page.date | date(format="%d %B %Y") }}
+    <br />
+    {{ page.description }}
+    <br />
+    {{ page.summary }}
+  </li>
+{% endfor %}
+</ul>
+{% endblock content %}

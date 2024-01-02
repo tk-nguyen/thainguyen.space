@@ -32,6 +32,7 @@ author = "Nguyen Thai"
 display_author = true
 favicon = "favicon.ico"
 image = ""
+default_theme = "dark"
 list_pages = false
 twitter_card = true
 header_nav = [
