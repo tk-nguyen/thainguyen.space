@@ -1,0 +1,4 @@
+sso.demo.null
+
+tls /etc/caddy/certs/ca.crt /etc/caddy/certs/ca.key
+reverse_proxy * keycloak:8080

@@ -3,6 +3,7 @@ template = "blog-page.html"
 title = "Setting up step-ca with Keycloak"
 description = "Tutorial on integrating step-ca and Keycloak"
 date = "2023-08-03"
+updated = "2024-04-01"
 authors = ["Nguyen Thai"]
 [taxonomies]
 tags = ["tutorials", "tls", "ssh"]
@@ -184,10 +185,7 @@ Finally, bring up all the services:
 $ docker compose up -d
 ```
 
-Then add `127.0.0.1 sso.demo.null` to your `/etc/hosts` ([Here's how to do it](https://linuxize.com/post/how-to-edit-your-hosts-file/)):
-```
-127.0.0.1 sso.demo.null
-```
+Then add `127.0.0.1 sso.demo.null` to your `/etc/hosts` ([Here's how to do it](https://linuxize.com/post/how-to-edit-your-hosts-file/)).
 
 ## Keycloak configuration
 
@@ -273,7 +271,7 @@ The authority configuration has been saved in /home/step/config/defaults.json.
 ```
 
 Now add OIDC provisioner to step-ca. Use the client ID, client secret and configuration endpoint from Keycloak as setup above. It should ask for the admin credentials. Choose `JWK provisioner` and enter the username and password from step-ca.
-```
+```bash
 $ step ca provisioner add keycloak --type oidc --client-id step --client-secret 8AbigoypbJTyxQg4pBDJITLspA9vZVSC --listen-address ":10000" --domain "demo.null" --configuration-endpoint https://sso.demo.null/realms/step/.well-known/openid-configuration
 No admin credentials found. You must login to execute admin commands.
 ✔️️ Please enter admin name/subject (e.g., name@example.com): step
@@ -292,7 +290,7 @@ We need a valid user at Keycloak to test our setup. Visit `https://sso.demo.null
 ![Registering a new user in Keycloak](images/register-new-user.png)
 
 Now switch back to the terminal in `cli` container. Let's try generating a TLS certificate for our new user.
-```
+```bash
 $ step ca certificate somewhere.demo.null cert.pem key.pem --provisioner keycloak --console
 ✔ Provisioner: keycloak (OIDC) [client: step]
 Visit https://sso.demo.null/realms/step/device and enter the code: (press 'ENTER' to open default browser)
@@ -320,7 +318,7 @@ $ echo "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABB
 ```
 
 Edit `ssh/ssh_host_keys/sshd_config` and added `TrustedUserCAKeys /config/ssh_host_keys/step_ca_user_pub` to the bottom. Then restart the `ssh` service.
-```
+```bash
 $ emacs ssh/sshd_config
 # Do your editing
 ...

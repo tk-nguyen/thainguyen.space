@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="{% if page %}{{ page.lang }}{% else %}{{ config.default_language }}{% endif %}">
+<head>
+    {% include "head.html" %}
+</head>
+<body>
+      <header>
+        {% set current_lang = config.default_language %}
+        {% if page %}
+        {% set current_lang = page.lang %}
+        {% elif section %}
+        {% set current_lang = section.lang %}
+        {% endif %}
+        {% if config.extra.header_nav %}
+        <nav id="nav-bar">
+            {% for nav_item in config.extra.header_nav %}
+            <a href="{{ nav_item.url }}">
+                {% set language_key = 'name_' ~ current_lang %}
+                {{ nav_item[language_key] }}
+            </a>
+            {% endfor %}
+            <div>
+            <input type="checkbox" id="theme-toggle" style="display: none;">
+            <label for="theme-toggle" id="theme-toggle-label"><svg id="theme-icon" class="icons"><use href="{{ get_url(path='/icons.svg#lightMode', trailing_slash=false) | safe }}"></use></svg></label>
+            <audio id="theme-sound">
+                <source src="{{ get_url(path='click.ogg', trailing_slash=false) | safe }}" type="audio/ogg">
+            </audio>
+            </div>
+        </nav>
+        {% endif %}
+      </header>
+      <main>
+          {% block content %}
+          <h2>Page not found!</h2>
+          <p>You are in a maze of twisty little passages, all alike.<p>
+          <a href="{{ config.base_url }}">Get back to safety!<a>
+          {% endblock content %}
+      </main>
+      <footer>
+          {% include "footer.html" %}
+      </footer>
+</body>
+</html>
