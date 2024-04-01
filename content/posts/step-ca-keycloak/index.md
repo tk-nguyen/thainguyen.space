@@ -370,7 +370,7 @@ id_ecdsa-cert.pub:
 ```
 
 Finally, try ssh into your `ssh` container:
-```
+```bash
 $ ssh -p 2222 jeff@ssh
 The authenticity of host '[ssh]:2222 ([172.18.0.4]:2222)' can't be established.
 ED25519 key fingerprint is SHA256:/jzaJafnlI/B6OzqvsIjN8zE/bEwRB0N02OXdvcZCic.
