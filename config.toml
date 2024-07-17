@@ -9,7 +9,6 @@ compile_sass = true
 minify_html = true
 generate_feed = true
 
-
 taxonomies = [{ name = "tags" }]
 
 [markdown]

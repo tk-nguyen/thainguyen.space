@@ -145,7 +145,7 @@ RUN update-ca-certificates
 ```
 
 Here's the [`Caddyfile`](files/Caddyfile)
-```caddy
+```
 sso.demo.null
 
 tls /etc/caddy/certs/ca.crt /etc/caddy/certs/ca.key
