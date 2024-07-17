@@ -13,7 +13,6 @@ Recently, I've been playing around with PXE booting using [iPXE](https://ipxe.or
 
 Since `isc-dhcp` [has reached EOL](https://www.isc.org/blogs/isc-dhcp-eol/), ISC recommended switching to [`Kea` dhcp server](https://www.isc.org/kea/). So that's what we're going to setup today.
 
-
 ## Prerequisites
 
 I'm using 2 VMs for this: 1 VM running Ubuntu Server 24.04, and 1 blank VM for netbooting. 
