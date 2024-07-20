@@ -377,7 +377,7 @@ All configuration for DHCPv4 must be under `Dhcpv4` key. Paste in the configurat
   ...
   ```
 
-- ption-data` specifies the global DHCPv4 options which will be sent to all subnets. 
+- `option-data` specifies the global DHCPv4 options which will be sent to all subnets. 
 
   ```json
   ...
