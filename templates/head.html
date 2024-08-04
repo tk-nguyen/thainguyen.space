@@ -95,6 +95,7 @@
 <link rel="stylesheet" type="text/css" href="{{ get_url(path='css/style.css', trailing_slash=false) | safe }}"/>
 {% endblock css %}
 <script src="{{ get_url(path='js/script.js', trailing_slash=false) | safe }}" defer></script>
+{% if page.toc %}
 {% block comments %}
 <script>
 var remark_config = {
@@ -105,3 +106,4 @@ var remark_config = {
 </script>
 <script>!function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);</script>
 {% endblock comments %}
+{% endif %}

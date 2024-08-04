@@ -13,7 +13,9 @@ const updateThemeIcon = (isDarkMode) => {
 const updateTheme = (isDarkMode) => {
     const theme = isDarkMode ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', theme);
-    window.REMARK42.changeTheme(theme)
+    if (typeof window.REMARK42 !== "undefined") {
+        window.REMARK42.changeTheme(theme)
+    }
     updateThemeIcon(isDarkMode);
 };
 
