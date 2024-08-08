@@ -36,8 +36,8 @@ list_pages = false
 twitter_card = true
 header_nav = [
     { name_en = "/home/", url = "/" },
-    { name_en = "/about/", url = "/about" },
     { name_en = "/posts/", url = "/posts" },
+    { name_en = "/about/", url = "/about" },
 ]
 
 comment_url = "https://comments.thainguyen.space"
