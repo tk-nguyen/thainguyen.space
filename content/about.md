@@ -6,7 +6,7 @@ draft = false
 
 Hello! I'm a DevOps Engineer at [Linagora Vietnam](https://linagora.vn/). In my day job I usually manage our company's infrastructure. Automation is my interest!
 
-This blog will mostly write about Linux administration and self-hosting softwares. Most of them will be open-source. The blog is a guide for how to set them up 😄
+This blog will mostly write about Linux administration and self-hosting softwares. Most of them will be open-source, and freely available on your favourite distro!
 
 Reach me at any of the places below:
 
