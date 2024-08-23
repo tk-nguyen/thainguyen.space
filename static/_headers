@@ -1,0 +1,2 @@
+/*
+    Content-Security-Policy: default-src 'self'; script-src 'self' https://*.thainguyen.space; style-src 'self' https://cdn.jsdelivr.net/gh/Speyll/suCSS/; img-src https://*; frame-ancestors 'none';

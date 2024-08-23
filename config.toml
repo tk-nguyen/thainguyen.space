@@ -16,7 +16,10 @@ render_emoji = true
 external_links_target_blank = true
 smart_punctuation = true
 highlight_code = true
-highlight_theme = "dracula"
+highlight_theme = "css"
+highlight_themes_css = [
+  { theme = "dracula", filename = "css/dracula-theme.css" },
+]
 
 [slugify]
 paths = "on"
@@ -39,6 +42,3 @@ header_nav = [
     { name_en = "/posts/", url = "/posts" },
     { name_en = "/about/", url = "/about" },
 ]
-
-comment_url = "https://comments.thainguyen.space"
-comment_site_id = "b2d3751e-6b89-42aa-a2c5-4df2e755d4f8"
