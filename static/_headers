@@ -1,2 +1,2 @@
 /*
-    Content-Security-Policy: default-src 'self' https://giscus.app https://speyll.github.io; img-src https://*; frame-ancestors 'none';
+    Content-Security-Policy: default-src 'self' https://giscus.app; img-src https://*; frame-ancestors 'none';
