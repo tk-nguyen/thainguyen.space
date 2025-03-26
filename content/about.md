@@ -4,7 +4,7 @@ date = 2023-04-07T13:42:56Z
 draft = false
 +++
 
-Hello! I'm a DevOps Engineer at [Linagora Vietnam](https://linagora.vn/). In my day job I usually manage our company's infrastructure. Automation is my interest!
+Hello! I'm an SRE at [commercetools](https://commercetools.com/). In my day job I usually look after our company's infrastructure. Automation is my interest!
 
 This blog will mostly write about Linux administration and self-hosting softwares. Most of them will be open-source, and freely available on your favourite distro!
 
