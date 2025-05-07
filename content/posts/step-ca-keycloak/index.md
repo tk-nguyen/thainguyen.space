@@ -1,5 +1,5 @@
 +++
-template = "blog-page.html"
+template = "blog/page.html"
 title = "Setting up step-ca with Keycloak"
 description = "Tutorial on integrating step-ca and Keycloak"
 date = "2023-08-03"

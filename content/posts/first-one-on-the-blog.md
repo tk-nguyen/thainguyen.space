@@ -1,9 +1,9 @@
 +++
+template = "blog/page.html"
 title = "First One on the Blog"
 date = 2023-04-07
 authors = ["Nguyen Thai"]
 description = "First blog post on my space!"
-template = "blog-page.html"
 [taxonomies]
 tags = ["hello"]
 +++

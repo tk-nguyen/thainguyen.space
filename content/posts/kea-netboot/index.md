@@ -1,5 +1,5 @@
 +++
-template = "blog-page.html"
+template = "blog/page.html"
 title = "Using kea DHCP server for netbooting"
 description = "Booting from netboot.xyz with Kea"
 date = "2024-07-17"
